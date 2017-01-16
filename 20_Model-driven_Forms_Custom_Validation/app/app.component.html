@@ -1,0 +1,69 @@
+<form 
+   [formGroup]="myForm" 
+   novalidate 
+
+   (ngSubmit)="save(myForm.value, myForm.valid)">
+                        <!-- [formGroup]="myForm"  binds formGroup to the myForm property defined
+                                 in the app.component.ts
+                              novalidate disables the builtin validation of HTML5 
+                              (ngSubmit)="save(myForm.value, myForm.valid) need to augment the 
+                                 native submit with ngSubmit and event binding.
+                              #myForm="ngForm" local variable representing th 
+                        -->
+
+
+   <!-- add controls here -->
+   <div class ='form-group'>   
+     <div class="input-line">
+       <label>Name</label>
+      <input 
+          type="text" formControlName="name" class="form-control">
+      <small [hidden]="myForm.controls.name.valid ||                          (myForm.controls.name.pristine && !submitted)">
+         <div class="alert alert-danger">Name is required (minimum of 5 characters)"</div>
+      </small>
+   </div>
+   <div formGroupName="address" >
+      <label class="sr-only" for="inlineFormInputGroup">Address</label>
+      <div class="input-group input-line">      
+        <div class="input-group-addon">street</div>
+        <input type="text" 
+              formControlName="street" 
+              class="form-control"
+              id="inlineFormInputGroup"
+             >
+                        <!-- formControl ="street"" is a FormControl defined in the component.ts,
+                                   it's key is street. Here it is being assigned to thr formControlName directive. This  directive:
+                                    "Syncs a FormControl in an existing FormGroup to a form control element by name.
+                                  
+                                    In other words, this directive ensures that any values written to the FormControl instance programmatically will be written to the DOM element (model -> view). Conversely, any values written to the DOM element through user input will be reflected in the FormControl instance (view -> model).
+                                  
+                                    This directive is designed to be used with a parent FormGroupDirective (selector: [formGroup])"
+                                    
+                                    COULD HAVE ALSO USED:
+                                    name="street"    ANGULAR creates a FormControl
+                                        and registers it with NgForm directive which it
+                                        attaches to the <form> tag. Each FormControl is registered
+                                        under the name we assigned to the name attribute.
+                                        it to this name.  Then we need to add #street=mgModel to 
+                                        register the formControl to NgForm.  See pragmaticCourseApp,
+                                        exercise 15
+                            class="form-control" BOOTSTRAP
+                            id="inlineFormInputGroup" BOOTSTRAP so the label is in-line
+                              
+                        -->
+                        
+      <small [hidden]="myForm.controls.address.controls.street.valid || (myForm.controls.address.controls.street.pristine && !submitted)">
+        <div class = "alert alert-danger" >street required</div>
+      </small><br>
+    </div>
+  <div class="input-line">
+      <label>Postcode</label>
+      <input type="text" formControlName="postcode"class="form-control">
+   </div>
+   <div class="input-line">
+   <button type="submit"class="btn btn-primary">Submit</button>
+   </div>
+</div>
+</div>
+
+</form>
