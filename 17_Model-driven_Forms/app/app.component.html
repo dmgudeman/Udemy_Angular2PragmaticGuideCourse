@@ -13,16 +13,22 @@
 
 
    <!-- add controls here -->
-   
-   <div><label>Name</label>
-      <input type="text" formControlName="name">
+   <div class ='form-group'>   
+     <div class="input-line">
+       <label>Name</label>
+      <input type="text" formControlName="name" class="form-control">
       <small [hidden]="myForm.controls.name.valid ||                          (myForm.controls.name.pristine && !submitted)">
          Name is required (minimum of 5 characters))
       </small>
    </div>
-   <div formGroupName="address">
-      <label>Address</label>
-      <input type="text" formControlName="street">
+   <div formGroupName="address" >
+      <label class="sr-only" for="inlineFormInputGroup">Address</label>
+      <div class="input-group input-line">      
+        <div class="input-group-addon">street</div>
+        <input type="text" 
+              formControlName="street" 
+              class="form-control"
+              id="inlineFormInputGroup">
                         <!-- street is a FormControl defined in the component.ts, it's key is street 
                               Here it is being assigned to thr formControlName directive. This 
                               directive:
@@ -36,9 +42,15 @@
       <small [hidden]="myForm.controls.address.controls.street.valid || (myForm.controls.address.controls.street.pristine && !submitted)">
         street required
       </small><br>
-   
+    </div>
+  <div class="input-line">
       <label>Postcode</label>
-      <input type="text" formControlName="postcode">
+      <input type="text" formControlName="postcode"class="form-control">
    </div>
-   <button type="submit">Submit</button>
+   <div class="input-line">
+   <button type="submit"class="btn btn-primary">Submit</button>
+   </div>
+</div>
+</div>
+
 </form>

@@ -9,7 +9,16 @@ import { User } from './user.interface';
 @Component({
   moduleId: module.id,
   selector: 'my-app',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styles: [`
+      form  {
+        padding: 20px;
+      }
+      .input-line {
+        padding: 5px;
+        width: 400px;
+      }
+  `]
   
 })
 export class AppComponent { 
