@@ -16,3 +16,10 @@ body {
   font-size: 50px;
 }
 
+.dropdown {
+  position:relative
+}
+
+.input {
+  width: 200px;
+}
