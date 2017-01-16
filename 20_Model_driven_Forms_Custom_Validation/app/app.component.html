@@ -1,5 +1,5 @@
 <h1>{{title}}</h1>
-<form #f="ngForm" (ngSubmit)="onSubscribe(f.form)">
+<form #f="ngForm" (ngSubmit)="signUp()">
     <div class="form-group">
         <label for="username">Name</label>
         <input 
@@ -14,12 +14,17 @@
         <div *ngIf="username.touched && username.errors">
             <div 
                 class="alert alert-danger" 
-                *ngIf="username.errors.required">
+                *ngIf="username.required">
                 Name is required.
             </div>
+              <div
+                  *ngIf="username.cannotContainSpace" 
+                  class="alert alert-danger">
+                 Username cannot contsin space.
+              </div>
             <div
                 class="alert alert-danger"
-                *ngIf="username.errors.minlength">
+                *ngIf="username.minlength">
                 Name should be minimum {{ username.errors.minlength.requiredLength }} characters.
             </div>
         </div>

@@ -23,7 +23,11 @@ export class AppComponent  {
 
   constructor(fb: FormBuilder){
       this.form = fb.group({
-        username: ['', Validators.required],
+        username: ['', Validators.compose([
+          Validators.required,
+          UsernameValidators.cannotContainSpace
+          ]
+          )],
         password: ['', Validators.required]
       });
   }
