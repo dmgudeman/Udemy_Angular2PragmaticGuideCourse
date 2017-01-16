@@ -13,6 +13,7 @@
 
 
    <!-- add controls here -->
+   
    <div><label>Name</label>
       <input type="text" formControlName="name">
       <small [hidden]="myForm.controls.name.valid ||                          (myForm.controls.name.pristine && !submitted)">
@@ -22,11 +23,20 @@
    <div formGroupName="address">
       <label>Address</label>
       <input type="text" formControlName="street">
+                        <!-- street is a FormControl defined in the component.ts, it's key is street 
+                              Here it is being assigned to thr formControlName directive. This 
+                              directive:
+                                  "Syncs a FormControl in an existing FormGroup to a form control element by name.
+                                  
+                                  In other words, this directive ensures that any values written to the FormControl instance programmatically will be written to the DOM element (model -> view). Conversely, any values written to the DOM element through user input will be reflected in the FormControl instance (view -> model).
+                                  
+                                  This directive is designed to be used with a parent FormGroupDirective (selector: [formGroup])" 
+                        -->
+                        
       <small [hidden]="myForm.controls.address.controls.street.valid || (myForm.controls.address.controls.street.pristine && !submitted)">
         street required
-      </small>
-   </div>
-   <div formGroupName="address">
+      </small><br>
+   
       <label>Postcode</label>
       <input type="text" formControlName="postcode">
    </div>

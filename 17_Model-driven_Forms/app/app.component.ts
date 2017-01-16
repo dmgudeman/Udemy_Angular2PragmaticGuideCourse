@@ -24,7 +24,7 @@ export class AppComponent {
   ngOnInit() {
     // Long Syntax
     this.myForm = new FormGroup({
-      name : new FormControl('', [<any>Validators.required, <any>Validators.minLength(5)]),
+      name : new FormControl('sparky', [<any>Validators.required, <any>Validators.minLength(5)]),
       address: new FormGroup({
           street: new FormControl('', <any>Validators.required),
           postcode: new FormControl('8000')
