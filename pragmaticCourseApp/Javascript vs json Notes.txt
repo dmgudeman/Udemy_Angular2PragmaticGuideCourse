@@ -1,0 +1,7 @@
+Javascript Object
+
+var person ={firstname:”John};
+
+JSON Object
+
+var person ={“firstname”: “John”}

@@ -1,0 +1,10 @@
+
+   
+    Preview: {{ title }}
+    <!-- this takes the EventEmitter object from the child component - DropdownComponent - and
+        when there is a new $event object is invokes the onNotify method in this, the parent's
+        component. It carries the payload in with the $event object in this case it is a string -->
+    <dropdown (dropdownEmmitter) ="onNotify($event)" >
+
+    </dropdown>
+

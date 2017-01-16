@@ -1,0 +1,75 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.form)">
+                                <!-- ngForm creates a top level FormGroup instance and binds it to
+                                        a form to track aggregate form value and validation status.
+                                        In this case it is assigned to the local variable f. These
+                                        variables have scope only in this template.
+                                -->
+    <div class="form-group">    <!--form-group identifies this as an BOOTSTRAP form-->
+        <label for="firstName">First Name</label> 
+                                <!-- The for="firstname" attaches this label to the name attribute of
+                                        the input element-->
+        <input 
+            ngModel
+            name="firstName" 
+            #firstName="ngModel" 
+            id="firstName"        
+            type="text" 
+            class="form-control" 
+            required 
+            minlength="4"
+            (change)="log"><!-- ngModel ANGULAR recognizes this DIRECTIVE has an implicit
+                                        input property and custom event property. By setting
+                                        the local variable #firstname to ngModel it allows firstname 
+                                        to be utilized in the validation logic below.
+                                name="firstname"    ANGULAR creates a FormControl
+                                        and registers it with NgForm directive which it
+                                        attaches to the <form> tag. Each FormControl is registered
+                                        under the name we assigned to the name attribute.
+                                        it to this name.
+                                #firstname="ngModel" ANGULAR local variable, allows it to be utilized 
+                                        in this component.
+                                id="firstname"      DOM element
+                                type="text"         HTML
+                                class="form-control" BOOTSTRAP   
+                                required            HTML5
+                                minlength="4"       HTML5?
+                                (change)="log"      ANGULAR event binding
+                         -->
+        <div *ngIf="firstName.touched && firstName.errors">
+            {{ firstName.errors | json }}
+           <div
+               class="alert alert-danger" 
+               *ngIf="firstName.errors.required">
+                   First name is required.
+           </div>          <!-- *ngIf="firstName.errors.required" - firstname represents a                                  form-control that has been defined by a local variable being
+                                registered to ngForm (that has been defined on the form tag).
+                                As a FormControl it has a errors object. No errors it is null.
+                                With errors it has a property of all the validation states such
+                                as required, minlength or maxlength.
+                            -->
+           <div 
+               class="alert alert-danger"
+               *ngIf="firstName.errors.minlength">
+                   First name should be minimm {{ firstName.errors.minlength.requiredLength }} characters.
+           </div>
+       </div>
+    </div>
+    <div class="form-group">
+        <label for="comment">comment</label>
+        <textarea 
+            ngModel 
+            name="comment" 
+            #comment="ngModel" 
+            id="comment" 
+            cols="30" 
+            rows="10" 
+            class="form-control" 
+            required>
+        </textarea>
+        <div *ngIf="comment.touched && !comment.valid" 
+            class="alert alert-danger">
+                Comment is required.
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid" >Submit</button>
+</form>
