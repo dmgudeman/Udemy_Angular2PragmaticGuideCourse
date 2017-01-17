@@ -1,32 +1,28 @@
 <h1>{{title}}</h1>
-<form #f="ngForm" (ngSubmit)="signUp()">
+<form [formGroup]="heroForm" *ngIf="active" (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <label for="username">Name</label>
+        <label for="name">Name</label>
         <input 
-            ngModel
-            name="username"
-            #username="ngModel" 
-            id="username" 
-            type="text" 
-            class="form-control input-line" 
-            required
-            minlength="3">
-        <div *ngIf="username.touched && username.errors">
-            <div 
-                class="alert alert-danger" 
-                *ngIf="username.required">
-                Name is required.
-            </div>
-              <div
-                  *ngIf="username.cannotContainSpace" 
-                  class="alert alert-danger">
-                 Username cannot contsin space.
-              </div>
-            <div
-                class="alert alert-danger"
-                *ngIf="username.minlength">
-                Name should be minimum {{ username.errors.minlength.requiredLength }} characters.
-            </div>
+            type="text"
+            id="name"
+            class="form-control"
+            formControlName="name"
+            required>
+                    <!-- the validation attributes are gone (except required)            because we'll be validating in code.
+
+                         required remains, not for validation purposes (we'll cover that in the code), but rather for css styling and accessibility.
+
+                         the formControlName replaces the name attribute; it serves the same purpose of correlating the input box with the Angular form control.
+
+                         the two-way [(ngModel)] binding is gone. The reactive approach does not use data binding to move data into and out of the form controls. We do that in code.
+
+                         the formControlName replaces the name attribute; it serves the same purpose of correlating the input box with the Angular form control.
+
+                         the two-way [(ngModel)] binding is gone. The reactive approach does not use data binding to move data into and out of the form controls. We do that in code.
+                     -->
+
+        <div *ngIf="formErrors.name" class="alert alert-danger">
+            {{ formErrors.name }}
         </div>
     </div>
     <div class="form-group">

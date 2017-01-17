@@ -1,0 +1,28 @@
+<form [formGroup]="heroForm"  *ngIf="active"  (ngSubmit)="onSubmit()">
+<label for="name">Name</label>
+<input type="text" id="name" class="form-control"
+       formControlName="name" required >
+<div *ngIf="formErrors.name" class="alert alert-danger">
+  {{ formErrors.name }}
+</div>
+
+</form>
+
+
+<!--the validation attributes are gone (except required) because we'll be validating in code.
+    required remains, not for validation purposes (we'll cover that in the code), 
+    but rather for css styling and accessibility.
+
+   A future version of reactive forms will add the required HTML validation attribute 
+   to the DOM element (and perhaps the aria-required attribute) when the control has 
+   the required validator function.
+
+   Until then, apply the required attribute and add the Validator.required f
+   unction to the control model, as we'll do below.
+
+    the formControlName replaces the name attribute; it serves the same 
+    purpose of correlating the input box with the Angular form control.
+
+    the two-way [(ngModel)] binding is gone. The reactive approach does not use 
+    data binding to move data into and out of the form controls. We do that in code.
+-->
