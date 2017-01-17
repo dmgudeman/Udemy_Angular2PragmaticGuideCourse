@@ -2,7 +2,7 @@ import { Component} from '@angular/core';
 import { FormGroup, FormControl, FormBuilder} from '@angular/forms';
 //http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/
 @Component({
-  selector: 'forms1',
+  selector: 'forms2',
   template: `
     <h2>{{name}}</h2>
     <form #f="ngForm"
@@ -46,8 +46,8 @@ It's also worth pointing out that NgModel and FormControl are separate objects. 
   `
 
 })
-export class Forms1Component {
-  name:string = '23. Observable Exercise - simple form';
+export class Forms2Component {
+  name:string = '23. Observables Exercise - Reactive Forms';
   onSubmit(form: any): void {  
     console.log('you submitted value:', form);  
   }

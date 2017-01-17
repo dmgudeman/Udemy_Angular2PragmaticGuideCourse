@@ -5,6 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent }  from './app.component';
 import { Forms1Component } from './forms1example.component';
+import { Forms2Component } from './forms2Reactive.component';
+
 import { FBComponent } from './formbuilderexample.component';
 
 @NgModule({
@@ -16,6 +18,8 @@ import { FBComponent } from './formbuilderexample.component';
   declarations: [ 
     AppComponent,
    Forms1Component,
+   Forms2Component,
+
    FBComponent 
 ],
   bootstrap:    [ AppComponent ]
