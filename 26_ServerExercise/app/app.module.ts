@@ -4,8 +4,9 @@ import { HttpModule } from '@angular/http';
 import { JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { PostService } from './post.service';
-//import { Post } from './post'
+import { GitHubService } from './github.service';
+import {GitHubComponent } from './github-profile.component';
+
 
 @NgModule({
   imports: [
@@ -14,13 +15,14 @@ import { PostService } from './post.service';
     JsonpModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    GitHubComponent
   ],
   bootstrap: [
     AppComponent
   ],
   providers: [
-    PostService
+    GitHubService
   ]
 })
 export class AppModule { }
