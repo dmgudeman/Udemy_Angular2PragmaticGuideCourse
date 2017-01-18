@@ -6,7 +6,7 @@ import {Album} from './album';
 @Component({
     template: `
         <h1>Albums</h1>
-        <div *ngIf="isLoading">
+       <!-- <div *ngIf="isLoading">
             <i class="fa fa-spinner fa-spin fa-3x"></i>
         </div>
         <ul>
@@ -14,20 +14,21 @@ import {Album} from './album';
                 {{ album.title }}
             </li> 
         </ul>
+        -->
     `
 })
 export class AlbumsComponent implements OnInit {
     isLoading = true;
     albums: Album[];
 
-    constructor(private _photoService: PhotoService){
-    }
+    // constructor(private _photoService: PhotoService){
+    // }
     
     ngOnInit(){
-        this._photoService.getAlbums()
-            .subscribe(albums => {
-                this.isLoading = false;
-                this.albums = albums;
-            });
+        // this._photoService.getAlbums()
+        //     .subscribe(albums => {
+        //         this.isLoading = false;
+        //         this.albums = albums;
+        //     });
     }
 }
