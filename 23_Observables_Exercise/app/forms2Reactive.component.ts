@@ -52,8 +52,8 @@ export class Forms2Component {
 
    calcDates (){
   var observable = Observable.from([1,2,3]);
-  var startDates=[];
-  var startDate = new Date();
+  var startDates:Date[]=[];
+  var startDate = new Date()
   for (var day= -2; day <=2; day++){
      var date = new Date(
         startDate.getFullYear(),
