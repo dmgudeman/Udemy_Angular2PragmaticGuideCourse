@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
     templateUrl: '/app/contact.component.html'
 })
 export class ContactComponent {
-    onSubmit(form:any){
-        console.log(form);
-    }
+    // onSubmit(form:any){
+    //     console.log(form);
+    // }
 }
