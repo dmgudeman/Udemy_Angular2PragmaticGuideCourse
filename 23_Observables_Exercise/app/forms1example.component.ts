@@ -47,7 +47,7 @@ It's also worth pointing out that NgModel and FormControl are separate objects. 
 
 })
 export class Forms1Component {
-  name:string = '23. Observable Exercise - simple form';
+  name:string = '23a. Observable Exercise - Simple Form';
   onSubmit(form: any): void {  
     console.log('you submitted value:', form);  
   }
