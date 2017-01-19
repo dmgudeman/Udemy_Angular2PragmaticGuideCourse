@@ -3,13 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent }  from './app.component';
 import { PhotoService }  from './photo.service';
-import { AlbumsComponent } from './albums.component';
+import { AlbumsListComponent } from './albums/albums-list.component';
 import { ContactComponent } from './contact.component';
 import { PageNotFoundComponent } from './not-found.component';
 const appRoutes: Routes = [
   
   { path: 'contact', component: ContactComponent},
-  { path: 'albums', component: AlbumsComponent},
+  { path: 'albums/albums', component: AlbumsListComponent},
   { path: '',   redirectTo: '/albums', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ]

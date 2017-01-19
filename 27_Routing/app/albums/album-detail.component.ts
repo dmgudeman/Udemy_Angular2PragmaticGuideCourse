@@ -1,8 +1,8 @@
-// import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 // import {HttpModule} from '@angular/http';
 // //import {PhotoService} from './photo.service';
 
-// @Component({
+@Component({
 //     template: `
 //         <h1>Album</h1>
 //         <div *ngIf="isLoading">
@@ -13,19 +13,19 @@
 //    <!--<img *ngFor=" let photo of photos" src="{{ photo.thumbnailUrl }}">-->
 //         </div>
 //     `
-// })
-// export class AlbumComponent implements OnInit {
-//     isLoading = true;
-//     photos:any;
+})
+export class AlbumDetailComponent implements OnInit {
+    // isLoading = true;
+    // photos:any;
 
-//     // constructor(private _photoService: PhotoService){
-//     // }
+    // // constructor(private _photoService: PhotoService){
+    // // }
     
-//     ngOnInit(){
+    ngOnInit(){
 //     //     this._photoService.getPhotos(1)
 //     //         .subscribe(photos => {
 //     //             this.isLoading = false;
 //     //             this.photos = photos;
 //     //         })
-//     }
-// }
+    }
+}

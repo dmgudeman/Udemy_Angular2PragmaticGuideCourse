@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { AlbumsList}
 
 import { AppComponent } from './app.component';
 import { PhotoService } from './photo.service';
-import { AlbumsComponent } from './albums.component';
+//import { AlbumsComponent } from './albums/albums.component';
 import { ContactComponent } from './contact.component';
 import { PageNotFoundComponent } from './not-found.component';
 
@@ -20,7 +21,7 @@ import { PageNotFoundComponent } from './not-found.component';
   ],
   declarations: [
     AppComponent,
-    AlbumsComponent,
+   // AlbumsComponent,
     ContactComponent,
     PageNotFoundComponent
   ],
