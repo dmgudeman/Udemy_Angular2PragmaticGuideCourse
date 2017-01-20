@@ -18,6 +18,7 @@ export class MessagesComponent implements FormComponent {
     messages;
     title = "New Message";
     form: FormGroup;
+    hasUnsavedChanges;
 
     constructor(service : MessagesService) {
         this.messages = service.getMessages();
