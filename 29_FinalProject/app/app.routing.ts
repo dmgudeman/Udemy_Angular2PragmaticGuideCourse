@@ -1,5 +1,4 @@
 import { Router, RouterModule } from '@angular/router';
-
 import { AppComponent }       from './app.component';
 import { HomeComponent }      from './home.component';
 import { UsersComponent }     from './users.component';

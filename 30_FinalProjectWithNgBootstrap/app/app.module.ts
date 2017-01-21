@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent }  from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UsersComponent } from './users/users.component';
+import { PostsComponent } from './posts/posts.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports:      [ 
@@ -11,7 +14,10 @@ import { NavbarComponent } from './navbar/navbar.component';
      ],
   declarations: [ 
     AppComponent,
-    NavbarComponent 
+    NavbarComponent,
+    UsersComponent,
+    PostsComponent,
+    NotFoundComponent,
     ],
   bootstrap:    [ AppComponent ]
 })
