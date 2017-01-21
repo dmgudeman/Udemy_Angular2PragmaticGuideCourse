@@ -10,6 +10,7 @@ import { PostsComponent } from './posts/posts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { routing } from './app.routing';
 import { usersRouting } from './users/users.routing';
+import { UsersService } from './users/users.service';
 
 @NgModule({
   imports:      [ 
@@ -28,6 +29,9 @@ import { usersRouting } from './users/users.routing';
     PostsComponent,
     NotFoundComponent,
     ],
+  providers: [
+    UsersService
+  ]
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
