@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'my-app',
@@ -6,12 +7,19 @@ import { Component } from '@angular/core';
    
    <navbar></navbar>
   
-      <ul>
-        <li><a routerLink="">Home</a></li>
-        <li><a routerLink="posts">Posts</a></li>
-        <li><a routerLink="users">Users</a></li>
-      </ul>
+     
+      <button (click)= "onClick()">Click Me</button>
        <router-outlet></router-outlet>
-      `,
+      `
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  { 
+  name = 'Angular'; 
+  
+  constructor(private _router: Router){
+  }
+  
+  onClick(){
+    this._router.navigate(['users', 2]);
+  }
+
+}

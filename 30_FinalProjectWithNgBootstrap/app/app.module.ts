@@ -5,14 +5,18 @@ import { AppComponent }  from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
+import { UserDetailsComponent } from './users/user-details.component';
 import { PostsComponent } from './posts/posts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { routing } from './app.routing';
+import { usersRouting } from './users/users.routing';
 
 @NgModule({
   imports:      [ 
     BrowserModule,
-    routing
+    usersRouting,
+    routing,
+    
    
      ],
   declarations: [ 
@@ -20,6 +24,7 @@ import { routing } from './app.routing';
     NavbarComponent,
     HomeComponent,
     UsersComponent,
+    UserDetailsComponent,
     PostsComponent,
     NotFoundComponent,
     ],
