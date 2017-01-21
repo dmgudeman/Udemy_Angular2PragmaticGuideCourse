@@ -10,7 +10,12 @@ export class UsersService {
       return Promise.resolve(USERS);
 
    };
+   getUsersSlowly(): Promise<string[]> {
+      return new Promise(resolve => {
+         setTimeout(() => (this.getUsers()), 2000);
+      });
 
-   //this.users = http://jsonplaceholder.typicode.com/users
+      //this.users = http://jsonplaceholder.typicode.com/users
 
+   }
 }

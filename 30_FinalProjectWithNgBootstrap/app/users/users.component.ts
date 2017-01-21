@@ -1,22 +1,23 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from './users.service';
 
 
 @Component({
-selector: 'users',
-   template: `
-      <h4>Users</h4>
-      <ul>
-         <li *ngFor="let user of users">{{user}}</li>
-      </ul>
-   ` 
+   selector: 'users',
+   templateUrl: 'app/users/users.component.html',
+   styles: [`
+      .myTable {
+         margin: 20px;
+         width: 50%;
+      }
+   `]
 })
 
 export class UsersComponent {
-   users:any;
+   users: any;
 
-   constructor(private usersService: UsersService){
+   constructor(private usersService: UsersService) {
 
    }
    ngOnInit(): void {
@@ -25,7 +26,10 @@ export class UsersComponent {
    getUsers(): void {
       this.usersService.getUsers().then(users => this.users = users);
    }
+  
+
+   
    }
-   
-   
+
+
 

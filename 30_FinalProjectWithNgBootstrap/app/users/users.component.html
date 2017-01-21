@@ -1,0 +1,45 @@
+
+<table class=" table table-bordered myTable">
+   <thead>
+      <tr>
+         <th>User</th>
+      </tr>
+   </thead>
+
+   <tbody>
+
+      <tr *ngFor="let user of users">
+      <td>{{user}}</td>
+      </tr>
+   </tbody>
+
+
+</table>
+
+<!--
+<table class="table table-bordered">
+   <thead>
+      <tr>
+         <th>Name</th>
+         <th>Email</th>
+         <th>Edit</th>
+         <th>Delete</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr *ngFor="let user of users">
+         <td>{{ user.name }}</td>
+         <td>{{ user.email }}</td>
+         <td>
+            <a [routerLink]="['/users', user.id]">
+               <i class="glyphicon glyphicon-edit"></i>
+            </a>
+         </td>
+         <td>
+            <i (click)="deleteUser(user)" class="glyphicon glyphicon-remove clickable"></i>
+         </td>
+      </tr>
+   </tbody>
+
+</table>
+-->
