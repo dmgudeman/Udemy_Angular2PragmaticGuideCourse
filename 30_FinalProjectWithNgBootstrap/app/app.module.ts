@@ -31,7 +31,7 @@ import { UsersService } from './users/users.service';
     ],
   providers: [
     UsersService
-  ]
+  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

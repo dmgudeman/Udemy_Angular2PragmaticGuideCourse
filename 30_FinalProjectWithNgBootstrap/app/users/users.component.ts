@@ -14,7 +14,7 @@ selector: 'users',
 })
 
 export class UsersComponent {
-   users:string[];
+   users:any;
 
    constructor(private usersService: UsersService){
 
@@ -23,7 +23,7 @@ export class UsersComponent {
       this.getUsers();
    }
    getUsers(): void {
-      this.users = this.usersService.getUsers();
+      this.usersService.getUsers().then(users => this.users = users);
    }
    }
    
