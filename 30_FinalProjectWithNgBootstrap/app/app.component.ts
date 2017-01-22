@@ -6,9 +6,7 @@ import { Router } from '@angular/router';
   template: `
    
    <navbar></navbar>
-  
-     
-      <button (click)= "onClick()">Click Me</button>
+   
        <router-outlet></router-outlet>
       `
 })
@@ -17,9 +15,6 @@ export class AppComponent  {
   
   constructor(private _router: Router){
   }
-  
-  onClick(){
-    this._router.navigate(['users', 2]);
-  }
+ 
 
 }

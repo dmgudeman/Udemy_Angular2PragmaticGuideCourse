@@ -1,18 +1,22 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { usersRouting } from './users.routing';
 
 
 @Component({
    selector: 'users',
    template: `
       <h4>Users Details {{ id }}</h4>
+      <button (click)= "onClick()">Click Me</button>
    `
 })
 
 export class UserDetailsComponent implements OnInit, OnDestroy {
    id: any;
    subscription: any;
-   constructor(private _route: ActivatedRoute) {
+   constructor(
+      private _route: ActivatedRoute, 
+      private _router: Router) {
 
    }
    ngOnInit() {
@@ -24,6 +28,10 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
    ngOnDestroy() {
       this.subscription.unsubscribe();
    }
+    
+  onClick(){
+    this._router.navigate(['users', 2]);
+  }
 }
 
 
