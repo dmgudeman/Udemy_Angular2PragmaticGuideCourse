@@ -23,22 +23,16 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpModule,
     JsonpModule,
     UsersModule,
-    // usersRouting,
     routing,
      ],
   declarations: [ 
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    // UsersComponent,
-    // UsersExperimentalComponent,
-    // UserDetailsComponent,
     PostsComponent,
     NotFoundComponent,
     ],
   providers: [
-    // UsersService,
-    // UsersExperimentalService
   ],
   bootstrap:    [ AppComponent ]
 })

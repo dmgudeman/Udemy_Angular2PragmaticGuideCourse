@@ -15,14 +15,19 @@ import { UsersExperimentalService } from './users-experimental.service';
    <thead>
       <tr>
          <th>User</th>
+         <th>Email</th>
+         <th>Edit</th>
+         <th>Delete</th>
       </tr>
    </thead>
 
    <tbody>
 
       <tr *ngFor="let user of users">
-      <td> {{user.id}}</td>
       <td> {{user.name}}</td>
+      <td> {{user.email}}</td>
+      <td> <i class="glyphicon glyphicon-edit"></i></td>
+      <td> <i class="glyphicon glyphicon-remove"></i></td>
       </tr>
    </tbody>
 
