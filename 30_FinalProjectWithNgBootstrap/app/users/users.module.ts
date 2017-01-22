@@ -1,29 +1,29 @@
 import { NgModule } from '@angular/core';
-import { UsersComponent } from './users.component';
-import { UsersExperimentalComponent } from './users-experimental.component';
-import { UserDetailsComponent } from './user-details.component';
+// import { UsersComponent } from './users.component';
+// import { UsersExperimentalComponent } from './users-experimental.component';
+// import { UserDetailsComponent } from './user-details.component';
 
-import { UsersService } from './users.service';
-import { UsersExperimentalService } from './users-experimental.service';
-import { usersRouting } from './users.routing';
+// import { UsersService } from './users.service';
+// import { UsersExperimentalService } from './users-experimental.service';
+// import { usersRouting } from './users.routing';
 
 @NgModule({
    imports: [
-      usersRouting,
+      // usersRouting,
    ],
    declarations: [
-      UsersComponent,
-      UsersExperimentalComponent,
-      UserDetailsComponent
+      // UsersComponent,
+      // UsersExperimentalComponent,
+      // UserDetailsComponent
    ],
    exports: [
-      UsersComponent,
-      UsersExperimentalComponent,
-      UserDetailsComponent
+      // UsersComponent,
+      // UsersExperimentalComponent,
+      // UserDetailsComponent
    ],
    providers: [
-      UsersService,
-      UsersExperimentalService
+      // UsersService,
+      // UsersExperimentalService
    ],
 
 })

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { routing } from './app.routing';
 import { usersRouting } from './users/users.routing';
+import { UsersModule } from './users/users.module';
 
 import { AppComponent }  from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -21,6 +22,7 @@ import { UsersExperimentalService } from './users/users-experimental.service';
     BrowserModule,
     HttpModule,
     JsonpModule,
+    UsersModule,
     usersRouting,
     routing,
      ],
