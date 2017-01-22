@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http,} from '@angular/http';
+import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map'
 import { UsersExperimentalService } from './users-experimental.service';
 
@@ -9,20 +10,41 @@ import { UsersExperimentalService } from './users-experimental.service';
       //viewProviders: [HTTP_PROVIDERS],
       template: `
       <h4>Users Experimental </h4>
-         <ul>
-         <li> *ngFor="let user of users> {{"hi there" + users.name}}</li>
-         </ul>
+         
+    <table class=" table table-bordered myTable">
+   <thead>
+      <tr>
+         <th>User</th>
+      </tr>
+   </thead>
+
+   <tbody>
+
+      <tr *ngFor="let user of users">
+      <td> {{user.id}}</td>
+      <td> {{user.name}}</td>
+      </tr>
+   </tbody>
+
+
+</table>
+
       `
 })
 export class UsersExperimentalComponent implements OnInit {
       errorMessage: string;
-      users: any;
+      users: any[];
+      listId: string;
+      listName: string;
       mode = 'Observable';
-      constructor(private usersExperimentalService: UsersExperimentalService) { }
+      
+      constructor(private _route: ActivatedRoute, private usersExperimentalService: UsersExperimentalService) {     
+       }
 
       ngOnInit() {
             this.getUsers(); {
             }
+            console.log(this.users);
       }
 
       getUsers(){
@@ -33,3 +55,4 @@ export class UsersExperimentalComponent implements OnInit {
                   );
       }
 }
+
