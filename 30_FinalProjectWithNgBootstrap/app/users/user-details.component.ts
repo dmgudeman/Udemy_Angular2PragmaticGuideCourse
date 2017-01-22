@@ -7,7 +7,7 @@ import { usersRouting } from './users.routing';
    selector: 'users',
    template: `
       <h4>Users Details {{ id }}</h4>
-      <button (click)= "onClick()">Click Me</button>
+      <button class="btn btn-success" (click)= "onClick()">Click Me</button>
    `
 })
 
