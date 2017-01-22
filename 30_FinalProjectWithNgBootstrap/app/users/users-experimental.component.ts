@@ -7,7 +7,7 @@ import { UsersExperimentalService } from './users-experimental.service';
 
 @Component({
       selector: 'users-experimental',
-      //viewProviders: [HTTP_PROVIDERS],
+      
       template: `
       <h4>Users Experimental </h4>
          

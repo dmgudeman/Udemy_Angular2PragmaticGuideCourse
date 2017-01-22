@@ -8,27 +8,27 @@ import { User } from './user';
 
 @Injectable()
 export class UsersExperimentalService {
-   private usersUrl = 'app/users/mock-users-experimental.json';
-//private usersUrl = "http://jsonplaceholder.typicode.com/users";
+//  private usersUrl = 'app/users/mock-users-experimental.json';
+private usersUrl = "http://jsonplaceholder.typicode.com/users";
 
 
    constructor(private http: Http) { }
-   getUsers(): Observable<User[]> {
+//    getUsers(): Observable<any> {
         
-      return this.http.get(`app/users/mock-users-experimental.json`)
-         .map(response =><User[]>response.json())
-         .catch(this.handleError);
-   }
-
-// getUsers(){
-// 		return this.http.get(this.usersUrl)
-// 			.map(res => res.json());
-// 	}
-//    private extractData(res: Response) {
-//       let body = res.json();
-//       console.log(body.data);
-//       return body.data || {}
+//       return this.http.get(this.usersUrl)
+//          .map(response =><any>response.json())
+//          .catch(this.handleError);
 //    }
+
+getUsers(){
+		return this.http.get(this.usersUrl)
+			.map(res => res.json());
+	}
+   private extractData(res: Response) {
+      let body = res.json();
+     
+      return body.data || {}
+   }
 
    private handleError (error: Response | any){
       let errMsg: string;
