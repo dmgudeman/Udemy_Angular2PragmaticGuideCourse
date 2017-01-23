@@ -15,7 +15,7 @@
             *ngIf="!addForm.controls.user.controls.name.valid &&
                      addForm.controls.user.controls.name.touched"
                class="alert alert-danger">
-                  Email address is required
+                  Name is required
             </div>
          </div>
          <div formGroupName="user">
@@ -24,10 +24,16 @@
                  formControlName="email" 
                  class="form-control">
             <div 
-            *ngIf="!addForm.controls.user.controls.email.valid &&
+            *ngIf="addForm.controls.user.controls.email.errors.required &&
                      addForm.controls.user.controls.email.touched"
                class="alert alert-danger">
                   Email address is required
+            </div>
+            <div
+            *ngIf="addForm.controls.user.controls.email.errors.pattern &&
+                     addForm.controls.user.controls.email.touched"
+               class="alert alert-danger">
+                  Valid Email address is required
             </div>
          </div>
          <div formGroupName="user">  
