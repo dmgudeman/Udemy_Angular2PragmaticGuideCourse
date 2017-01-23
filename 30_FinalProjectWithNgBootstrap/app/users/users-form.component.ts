@@ -3,6 +3,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, FormControl, Validators} f
 import { ActivatedRoute, Router } from '@angular/router';
 import { usersRouting } from './users.routing';
 import { UserValidators } from './user-validators';
+import { PreventUnsavedChangesGuard } from './prevent-unsaved-changes-guard.service';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ import { UserValidators } from './user-validators';
 })
 
 export class UsersFormComponent implements OnInit {
-   addForm: FormGroup;
+   form: FormGroup;
    name: FormControl;
    user: any;
 
@@ -25,7 +27,7 @@ export class UsersFormComponent implements OnInit {
        ) {}
 
    ngOnInit() {
-          this.addForm = this._fb.group({
+          this.form = this._fb.group({
              user: this._fb.group(this.initUserEmailModel()),
              address: this._fb.group({
                 street: '',

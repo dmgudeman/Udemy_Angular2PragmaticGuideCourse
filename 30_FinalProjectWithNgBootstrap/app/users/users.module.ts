@@ -9,6 +9,8 @@ import { UsersFormComponent } from './users-form.component';
 import { UsersService } from './users.service';
 import { UsersExperimentalService } from './users-experimental.service';
 import { usersRouting } from './users.routing';
+import { PreventUnsavedChangesGuard } from './prevent-unsaved-changes-guard.service';
+import { FormComponent } from '../shared/form-component.interface';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { usersRouting } from './users.routing';
    providers: [
       UsersService,
       UsersExperimentalService,
+      PreventUnsavedChangesGuard
    ],
 
 })
