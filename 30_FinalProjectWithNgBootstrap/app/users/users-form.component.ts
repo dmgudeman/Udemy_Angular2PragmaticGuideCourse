@@ -2,9 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { usersRouting } from './users.routing';
+import { UserValidators } from './user-validators';
 
-// import { UsersExperimentalService } from './users-experimental.service';
-//import { usersRouting } from './users.routing';
 
 @Component({
    selector: 'users-form',
@@ -27,17 +26,7 @@ export class UsersFormComponent implements OnInit {
 
    ngOnInit() {
           this.addForm = this._fb.group({
-             user: this._fb.group({
-                name: [null, Validators.compose([
-                                 Validators.required,
-                                 Validators.minLength(3)])
-                      ],
-                email: [null, Validators.compose([
-                                 Validators.required,
-                                 Validators.minLength(3)])
-                      ],
-                phone:'',
-             }),
+             user: this._fb.group(this.initUserEmailModel()),
              address: this._fb.group({
                 street: '',
                 suite: '',
@@ -46,11 +35,33 @@ export class UsersFormComponent implements OnInit {
              })
           })
        }
+       initUserEmailModel(){
+       var flag:any;
+       const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+         
+         flag = Validators.pattern(emailRegex);
+       const model = {
+          name: [null,[Validators.required, Validators.minLength(3)]],
+          email: [null, [Validators.required,Validators.pattern(emailRegex)]],
+          phone:'',
+       };
+       return model;
+       }
+       
+   
    submitForm(value: any){
     console.log(value);
+    console.log(UserValidators.validateEmail);
   }
   onClick(value:any){
      console.log(value);
   }
+  
+//   validateEmail(email:string) {
+//   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//   return re.test(email);
+// }
+
 }
+  
   
