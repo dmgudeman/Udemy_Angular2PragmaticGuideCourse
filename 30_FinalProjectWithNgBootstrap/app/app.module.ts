@@ -1,5 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { routing } from './app.routing';
 // import { usersRouting } from './users/users.routing';
@@ -21,6 +22,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports:      [ 
     BrowserModule,
     HttpModule,
+    ReactiveFormsModule,
     JsonpModule,
     UsersModule,
     routing,
