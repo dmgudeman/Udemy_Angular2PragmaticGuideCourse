@@ -1,5 +1,6 @@
 import { FormGroup } from '@angular/forms';
 
 export interface FormComponent {
-   form: FormGroup;
+   // form: FormGroup;
+   hasUnsavedChanges(): Boolean;
 }

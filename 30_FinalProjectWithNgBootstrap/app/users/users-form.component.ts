@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { usersRouting } from './users.routing';
 import { UserValidators } from './user-validators';
 import { PreventUnsavedChangesGuard } from './prevent-unsaved-changes-guard.service';
+import { FormComponent } from '../shared/form-component.interface';
 
 
 
@@ -15,7 +16,7 @@ import { PreventUnsavedChangesGuard } from './prevent-unsaved-changes-guard.serv
    `]
 })
 
-export class UsersFormComponent implements OnInit {
+export class UsersFormComponent implements OnInit, FormComponent {
    form: FormGroup;
    name: FormControl;
    user: any;
@@ -57,6 +58,9 @@ export class UsersFormComponent implements OnInit {
   }
   onClick(value:any){
      console.log(value);
+  }
+  hasUnsavedChanges():Boolean{
+     return true;
   }
   
 //   validateEmail(email:string) {
