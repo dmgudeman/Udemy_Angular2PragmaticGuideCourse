@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 // import { Http, } from '@angular/http';
-import { ActivatedRoute } from '@angular/router';
-import 'rxjs/add/operator/map'
+import { ActivatedRoute, Router } from '@angular/router';
+import 'rxjs/add/operator/map';
+import { usersRouting } from './users.routing';
+
 // import { UsersExperimentalService } from './users-experimental.service';
 //import { usersRouting } from './users.routing';
 
@@ -18,8 +20,11 @@ export class UsersFormComponent {
 
     constructor(
        private _route: ActivatedRoute, 
+       private _router: Router
       //  private usersExperimentalService: UsersExperimentalService,
        ) {}
+
+    
    // ngOnInit(): void {
    //    this.getUsers();
    // }

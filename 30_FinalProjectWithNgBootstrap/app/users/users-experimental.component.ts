@@ -15,7 +15,10 @@ export class UsersExperimentalComponent implements OnInit {
       listName: string;
       mode = 'Observable';
 
-      constructor(private _route: ActivatedRoute, private usersExperimentalService: UsersExperimentalService) {
+      constructor(
+            private _route: ActivatedRoute,
+            private usersExperimentalService: UsersExperimentalService,
+            private _router: Router) {
       }
 
       ngOnInit() {
@@ -29,6 +32,9 @@ export class UsersExperimentalComponent implements OnInit {
                   users => this.users = users,
                   error => this.errorMessage = <any>error
                   );
+      }
+      onClick() {
+            this._router.navigate(['users-form']);
       }
 }
 
