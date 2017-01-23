@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ReactiveFormsModule,FormBuilder, FormGroup, FormControl, FormArray, Validators} from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { usersRouting } from './users.routing';
 
@@ -23,32 +23,34 @@ export class UsersFormComponent implements OnInit {
        private _fb: FormBuilder,
        private _route: ActivatedRoute, 
        private _router: Router
-      //  private usersExperimentalService: UsersExperimentalService,
        ) {}
 
    ngOnInit() {
-      //  this.addForm = new FormGroup({
-      //     user: new FormGroup({
-      //        name: new FormControl(),
-      //        email: new FormControl(),
-      //        phone: new FormControl()
-      //     })
-      //  })
           this.addForm = this._fb.group({
              user: this._fb.group({
-                name: '',
-                email: '',
+                name: [null, Validators.compose([
+                                 Validators.required,
+                                 Validators.minLength(3)])
+                      ],
+                email: [null, Validators.compose([
+                                 Validators.required,
+                                 Validators.minLength(3)])
+                      ],
                 phone:'',
              }),
              address: this._fb.group({
                 street: '',
                 suite: '',
                 city:'',
-                zipcode:'',
+                zipcode:''
              })
           })
        }
-   
-  
+   submitForm(value: any){
+    console.log(value);
+  }
+  onClick(value:any){
+     console.log(value);
+  }
 }
   

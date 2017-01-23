@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { UsersComponent } from './users.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule, 
-   FormGroup, FormControl, FormControlName, FormGroupName } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersExperimentalComponent } from './users-experimental.component';
 import { UserDetailsComponent } from './user-details.component';
 import { UsersFormComponent } from './users-form.component';
