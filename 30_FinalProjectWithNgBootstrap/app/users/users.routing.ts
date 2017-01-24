@@ -5,6 +5,7 @@ import { UserDetailsComponent } from './user-details.component';
 import { UsersExperimentalComponent } from './users-experimental.component';
 import { UsersFormComponent } from './users-form.component';
 import { PreventUnsavedChangesGuard } from './prevent-unsaved-changes-guard.service';
+import { AuthGuard } from '../auth-guard.service';
 
 
 export const usersRouting = RouterModule.forChild([
@@ -15,7 +16,8 @@ export const usersRouting = RouterModule.forChild([
    },
    { path: 'users-form', 
          component: UsersFormComponent,
-         canDeactivate: [PreventUnsavedChangesGuard]
+         canActivate : [AuthGuard]
+      //    canDeactivate: [PreventUnsavedChangesGuard]
    }
    
 ]);

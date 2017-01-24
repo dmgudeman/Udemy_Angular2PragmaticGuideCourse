@@ -9,14 +9,10 @@ import { UsersModule } from './users/users.module';
 import { AppComponent }  from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-// import { UsersComponent } from './users/users.component';
-// import { UsersExperimentalComponent } from './users/users-experimental.component';
-// import { UserDetailsComponent } from './users/user-details.component';
 import { PostsComponent } from './posts/posts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
-// import { UsersService } from './users/users.service';
-// import { UsersExperimentalService } from './users/users-experimental.service';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service',
 
 @NgModule({
   imports:      [ 
@@ -35,6 +31,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NotFoundComponent,
     ],
   providers: [
+    AuthService,
+    AuthGuard
   ],
   bootstrap:    [ AppComponent ]
 })
