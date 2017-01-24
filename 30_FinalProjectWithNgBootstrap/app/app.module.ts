@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { PostsComponent } from './posts/posts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './auth.service';
-import { AuthGuard } from './auth-guard.service',
+import { AuthGuard } from './auth-guard.service'
 
 @NgModule({
   imports:      [ 

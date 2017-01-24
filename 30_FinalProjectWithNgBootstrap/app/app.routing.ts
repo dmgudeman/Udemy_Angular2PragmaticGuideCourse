@@ -6,16 +6,17 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './auth-guard.service';
 
 
-export const routing = RouterModule.forRoot ([
-   { 
-      path: '', component: HomeComponent },
-       
-     { path: 'home', component: HomeComponent },
-   { 
-      path: 'posts', 
+export const routing = RouterModule.forRoot([
+   {
+      path: '', component: HomeComponent
+   },
+
+   { path: 'home', component: HomeComponent },
+   {
+      path: 'posts',
       component: PostsComponent,
-      canActivate: [ AuthGuard ]
-    },
+      canActivate: [AuthGuard]
+   },
    { path: '**', component: NotFoundComponent },
 
 ]);

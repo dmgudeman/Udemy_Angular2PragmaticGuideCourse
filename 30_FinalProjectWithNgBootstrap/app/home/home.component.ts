@@ -7,11 +7,13 @@ import { AuthService } from '../auth.service';
    template: `
       <h4>Home</h4>
    ` 
-
 })
 
 export class HomeComponent {
    constructor(authService: AuthService){
-      authService.login("username", "password");
+      authService.login("s", "s");
+
+      console.log(authService.isLoggedIn);
+    
    }
 }
