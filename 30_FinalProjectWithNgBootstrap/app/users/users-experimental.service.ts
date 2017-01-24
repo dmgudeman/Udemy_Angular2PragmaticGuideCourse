@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { User } from './user';
+
 
 @Injectable()
 export class UsersExperimentalService {
@@ -35,8 +36,15 @@ export class UsersExperimentalService {
         console.error(errMsg);
         return Observable.throw(errMsg);
     }
+    
+    addUser(name:string):Observable<User>{
+        let headers = new Headers({'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers});
+        
+        return this.http.post(this.usersUrl, {name}, options)
+                        .map(this.extractData)
+                        .catch(this.handleError);
+    }
 
-
-    //this.users = http://jsonplaceholder.typicode.com/users
 
 }

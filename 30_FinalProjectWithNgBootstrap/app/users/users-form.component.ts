@@ -6,6 +6,7 @@ import { UserValidators } from './user-validators';
 import { PreventUnsavedChangesGuard } from './prevent-unsaved-changes-guard.service';
 import { FormComponent } from './form-component.interface';
 import { MyValidators } from '../myvalidators';
+import { UsersExperimentalService } from './users-experimental.service';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class UsersFormComponent implements OnInit{
   constructor( @Inject(FormBuilder)
   private _fb: FormBuilder,
     private _route: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _usersExperimentalService: UsersExperimentalService,
   ) { }
 
   ngOnInit() {
@@ -56,7 +58,12 @@ export class UsersFormComponent implements OnInit{
       return ("Are you sure?");
     return null;
   }
-  
+   save() {
+     this._usersExperimentalService.addUser(this.form.value)
+        .subscribe( x=>{
+    
+        this._router.navigate(['users-experimental']);
+        });
   
 }
   
@@ -74,10 +81,7 @@ export class UsersFormComponent implements OnInit{
   // }
   
 
-  // submitForm(value: any) 
-  //   console.log(value);
-  //   console.log(UserValidators.validateEmail);
-  // }
+ 
   // onClick(value: any) {
   //   console.log(value);
   // }
