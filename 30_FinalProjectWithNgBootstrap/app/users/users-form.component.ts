@@ -30,8 +30,8 @@ export class UsersFormComponent implements OnInit, FormComponent{
   ngOnInit() {
     this.form = this._fb.group({
       user: this._fb.group({
-        name: ['x', [Validators.required, Validators.minLength(3)]],
-        email: ['x@xit.com', this.validateEmail], //Validators.pattern(emailRegex)]],
+        name: ['', [Validators.required, Validators.minLength(3)]],
+        email: ['', this.validateEmail], //Validators.pattern(emailRegex)]],
         phone: ''
       }),
       address: this._fb.group({
@@ -50,7 +50,11 @@ export class UsersFormComponent implements OnInit, FormComponent{
 
     return null;
   }
-  hasUnsavedChanges(){}
+  hasUnsavedChanges(form:FormGroup){
+    if (form.dirty)
+      return ("Are you sure?");
+    return null;
+  }
   
   
 }

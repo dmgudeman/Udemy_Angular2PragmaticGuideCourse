@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
 
 export class HomeComponent {
    constructor(authService: AuthService){
-      authService.login("s", "s");
+      authService.login("D", "s");
 
       console.log(authService.isLoggedIn);
     

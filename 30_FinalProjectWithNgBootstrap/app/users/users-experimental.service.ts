@@ -8,42 +8,35 @@ import { User } from './user';
 
 @Injectable()
 export class UsersExperimentalService {
-//  private usersUrl = 'app/users/mock-users-experimental.json';
-private usersUrl = "http://jsonplaceholder.typicode.com/users";
+
+    private usersUrl = "http://jsonplaceholder.typicode.com/users";
+
+    constructor(private http: Http) { }
+
+    getUsers() {
+        return this.http.get(this.usersUrl)
+            .map(res => res.json());
+    }
+    private extractData(res: Response) {
+        let body = res.json();
+
+        return body.data || {}
+    }
+
+    private handleError(error: Response | any) {
+        let errMsg: string;
+        if (error instanceof Response) {
+            const body = error.json() || '';
+            const err = body.error || JSON.stringify(body);
+            errMsg = `${error.status} - ${error.statusText || ''}`;
+        } else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(errMsg);
+        return Observable.throw(errMsg);
+    }
 
 
-   constructor(private http: Http) { }
-//    getUsers(): Observable<any> {
-        
-//       return this.http.get(this.usersUrl)
-//          .map(response =><any>response.json())
-//          .catch(this.handleError);
-//    }
-
-getUsers(){
-		return this.http.get(this.usersUrl)
-			.map(res => res.json());
-	}
-   private extractData(res: Response) {
-      let body = res.json();
-     
-      return body.data || {}
-   }
-
-   private handleError (error: Response | any){
-      let errMsg: string;
-      if(error instanceof Response) {
-         const body = error.json() || '';
-         const err = body.error || JSON.stringify(body);
-         errMsg = `${error.status} - ${error.statusText || ''}`;
-      } else {
-         errMsg = error.message ? error.message : error.toString();
-      }
-      console.error(errMsg);
-      return Observable.throw(errMsg);
-  }
-
-
-   //this.users = http://jsonplaceholder.typicode.com/users
+    //this.users = http://jsonplaceholder.typicode.com/users
 
 }
