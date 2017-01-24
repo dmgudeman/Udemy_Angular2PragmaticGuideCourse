@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
-   isLoggedIn:any;
+   isLoggedIn:boolean;
 
    // In real app this is provided by the server
    login(username: string, password: string) {

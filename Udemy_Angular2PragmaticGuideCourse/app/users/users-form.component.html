@@ -1,0 +1,77 @@
+<div class="col-md-6 col-lg-6 well">
+   <form [formGroup]="form"
+       (ngSubmit)="submitForm(form.value)" 
+       novalidate>
+      <fieldset>
+         <legend>User</legend>
+         <div formGroupName="user"   
+            class="form-group">
+            
+            <label>Full Name</label>
+            <input type="text" 
+                formControlName="name"
+                class="form-control user-input-style">
+            <div 
+            *ngIf="!form.controls.user.controls.name.valid &&
+                     form.controls.user.controls.name.touched"
+               class="alert alert-danger">
+                  Name is required
+            </div>
+         </div>
+         <div formGroupName="user">
+            <label>Email</label>
+            <input type="text" 
+                  formControlName="email"
+                 class="form-control user-input-style"
+                 >
+                 <div
+            
+           
+            *ngIf="form.controls.user.controls.email.errors.required &&
+                     form.controls.user.controls.email.touched"
+               class="alert alert-danger ">
+                  Email address is required
+            </div>
+            <div  *ngIf="(form.controls.user.controls.email.invalid &&
+                     form.controls.user.controls.email.touched &&
+                     alidators)
+                    "
+               class="alert alert-danger">
+                  Valid Email address is required
+           </div>
+          
+
+         </div>
+         <div formGroupName="user">  
+            <label>Phone</label>
+            <input type="text"
+                 formControlName="phone" 
+                 class="form-control" >
+         </div>
+       
+      </fieldset>
+      <fieldset>
+         <legend>Address</legend>
+         <div formGroupName="address" class="form-group">
+            <label>Street</label>
+            <input type="text"
+                 formControlName="street" 
+                 class="form-control" >
+            <label>Suite</label>
+            <input type="text"
+                 formControlName="suite" 
+                 class="form-control" >
+            <label>City</label>
+            <input type="text"
+                 formControlName="city" 
+                 class="form-control" >
+            <label>ZipCode</label>
+            <input type="text"
+                 formControlName="zipcode" 
+                 class="form-control" >
+        </div> 
+    </fieldset>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+    
+   </form>
+</div>
