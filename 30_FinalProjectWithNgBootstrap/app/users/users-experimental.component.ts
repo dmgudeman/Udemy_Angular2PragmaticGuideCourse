@@ -17,7 +17,7 @@ export class UsersExperimentalComponent implements OnInit {
 
       constructor(
             private _route: ActivatedRoute,
-            private usersExperimentalService: UsersExperimentalService,
+            private _usersExperimentalService: UsersExperimentalService,
             private _router: Router) {
       }
 
@@ -27,7 +27,7 @@ export class UsersExperimentalComponent implements OnInit {
       }
 
       getUsers() {
-            this.usersExperimentalService.getUsers()
+            this._usersExperimentalService.getUsers()
                   .subscribe(
                   users => this.users = users,
                   error => this.errorMessage = <any>error

@@ -13,8 +13,10 @@
       <tr *ngFor="let user of users">
       <td> {{user.name}}</td>
       <td> {{user.email}}</td>
-      <td> <i class="glyphicon glyphicon-edit"></i></td>
-      <td> <i class="glyphicon glyphicon-remove"></i></td>
+      <td>  <a [routerLink]="['/users-forms', user.id]">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a></td>
+      <td> <i (click)="deleteUser(user)" class="glyphicon glyphicon-remove clickable"></i></td>
       </tr>
    </tbody>
 </table>
