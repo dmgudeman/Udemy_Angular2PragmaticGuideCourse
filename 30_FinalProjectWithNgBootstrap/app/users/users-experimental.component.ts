@@ -11,6 +11,7 @@ import { UsersExperimentalService } from './users-experimental.service';
 export class UsersExperimentalComponent implements OnInit {
       errorMessage: string;
       users: any[];
+      user: any;
       listId: string;
       listName: string;
       mode = 'Observable';
@@ -30,6 +31,14 @@ export class UsersExperimentalComponent implements OnInit {
             this._usersExperimentalService.getUsers()
                   .subscribe(
                   users => this.users = users,
+                  error => this.errorMessage = <any>error
+                  );
+      }
+
+      getUser(id: number) {
+            this._usersExperimentalService.getUser(id)
+                  .subscribe(
+                  user => this.user = user,
                   error => this.errorMessage = <any>error
                   );
       }

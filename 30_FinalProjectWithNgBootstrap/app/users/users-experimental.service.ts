@@ -4,6 +4,8 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/pluck';
 import { User } from './user';
 
 
@@ -18,6 +20,14 @@ export class UsersExperimentalService {
         return this.http.get(this.usersUrl)
             .map(res => res.json());
     }
+
+    getUser(id:number){
+        console.log("Im in the service, the id = " + id);
+        return this.http.get(this.usersUrl)
+                   .map(res => res.json())
+                   .filter(user=>user.id == id)
+    }
+
     private extractData(res: Response) {
         let body = res.json();
 
