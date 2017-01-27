@@ -9,20 +9,27 @@ import { AuthGuard } from '../auth-guard.service';
 
 
 export const usersRouting = RouterModule.forChild([
-   { path: 'users', component: UsersComponent },
-   { path: 'users/:id', component: UserDetailsComponent },
-   { path: 'users-experimental', 
-         component: UsersExperimentalComponent 
-   },
-   { path: 'users-form', 
-         component: UsersFormComponent,
-         canActivate : [ AuthGuard ],
-         canDeactivate: [ PreventUnsavedChangesGuard ]
-   },
-   { path: 'users-form/:id', 
-         component: UsersFormComponent,
-         canActivate : [ AuthGuard ],
-         canDeactivate: [ PreventUnsavedChangesGuard ]
-   }
-   
+      { path: 'users', component: UsersComponent },
+      { path: 'users/:id', component: UserDetailsComponent },
+      {
+            path: 'users-experimental',
+            component: UsersExperimentalComponent,
+      },
+      {
+            path: 'users-form/:id',
+            component: UsersFormComponent,
+            canActivate: [AuthGuard],
+            canDeactivate: [PreventUnsavedChangesGuard],
+
+      },
+      {
+            path: 'users-form/new',
+            component: UsersFormComponent,
+            canActivate: [AuthGuard],
+            canDeactivate: [PreventUnsavedChangesGuard],
+
+      }
+                  
+            
+      
 ])

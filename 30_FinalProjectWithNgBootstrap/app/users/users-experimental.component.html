@@ -1,5 +1,9 @@
 <h4>Users Experimental </h4>
-<button class="btn btn-success" (click)="onClick()">Add User</button>
+<!--<button class="btn btn-success" (click)="onClick()">Add User</button>-->
+<p>
+    <a routerLink="/users-form/new" class="btn btn-primary">Add User</a>
+</p>
+ 
    <table class=" table table-bordered myTable">
    <thead>
       <tr>
@@ -13,7 +17,7 @@
       <tr *ngFor="let user of users">
       <td> {{user.name}}</td>
       <td> {{user.email}}</td>
-      <td>  <a [routerLink]="['/users-forms', user.id]">
+      <td>  <a [routerLink]="['/users-form', user.id]">
                     <i class="glyphicon glyphicon-edit"></i>
                 </a></td>
       <td> <i (click)="deleteUser(user)" class="glyphicon glyphicon-remove clickable"></i></td>

@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { usersRouting } from './users.routing';
-import { UserValidators } from './user-validators';
+
 import { PreventUnsavedChangesGuard } from './prevent-unsaved-changes-guard.service';
 import { FormComponent } from './form-component.interface';
 import { MyValidators } from '../myvalidators';
