@@ -17,12 +17,12 @@ import { UsersExperimentalService } from './users-experimental.service';
    `]
 })
 
-export class UsersFormComponent implements OnInit{
+export class UsersFormComponent implements OnInit {
   form: FormGroup;
   name: FormControl;
   user: any;
-  EMAIL_REGEX:RegExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  
+  EMAIL_REGEX: RegExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   constructor( @Inject(FormBuilder)
   private _fb: FormBuilder,
     private _route: ActivatedRoute,
@@ -47,53 +47,25 @@ export class UsersFormComponent implements OnInit{
   }
 
   validateEmail(c: FormControl) {
-    const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (c.value) 
-       return EMAIL_REGEX.test(c.value);
+
+    if (c.value)
+      return this.EMAIL_REGEX.test(c.value);
 
     return null;
   }
-  hasUnsavedChanges(form:FormGroup){
+  hasUnsavedChanges(form: FormGroup) {
     if (form.dirty)
       return ("Are you sure?");
     return null;
   }
-   save() {
-     this._usersExperimentalService.addUser(this.form.value)
-        .subscribe( x=>{
-         // Ideally, here we'd want:
-         // this.form.markAsPristine();
+  save() {
+    this._usersExperimentalService.addUser(this.form.value)
+      .subscribe(x => {
+        // Ideally, here we'd want:
+        // this.form.markAsPristine();
         this._router.navigate(['users-experimental']);
-        });
-  
+      });
+
+  }
+
 }
-  
-  // initUserEmailModel() {
-  //   var flag: any;
-   
-
- 
-  //   const model = {
-  //     name: [null, [Validators.required, Validators.minLength(3)]],
-  //     email: [null, this.validateEmail], //[Validators.required]], //Validators.pattern(emailRegex)]],
-  //     phone: '',
-  //   };
-  //   return model;
-  // }
-  
-
- 
-  // onClick(value: any) {
-  //   console.log(value);
-  // }
-  // hasUnsavedChanges(): Boolean {
-  //   return true;
-  // }
-
-  //   validateEmail(email:string) {
-  //   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //   return re.test(email);
-  // }
-
-
-
