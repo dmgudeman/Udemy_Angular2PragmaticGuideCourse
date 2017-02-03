@@ -54,26 +54,9 @@ export class UsersFormComponent implements OnInit {
 
     var oId = this._route.params.subscribe(params => {
       this.iId = +params["id"];
-      console.log("I'm in form-users.component id = " + this.iId);
-     // this.title = this.iId ? "Edit User" : "New User";
-
-      // if (!this.iId) {
-      //   this._usersExperimentalService.getUser(this.iId)
-      //     .subscribe(
-      //     user => this.user = user,
-      //     response => {
-      //       if (response.status == 404) {
-      //         this._router.navigate(['NotFound']);
-      //       }
-      //     });
-
-      // }
-      // console.log("In Between");
-      // this._usersExperimentalService.getUser(this.iId)
-      //   .subscribe(
-      //   user => {  },//this.user = user,
-      //   error => this.errorMessage = <any>error
-      //   );
+       
+       this.title = this.iId ? "Edit User" : "New User";
+     
        if (!this.iId){
          console.log("!this.iId");
 			return;}
