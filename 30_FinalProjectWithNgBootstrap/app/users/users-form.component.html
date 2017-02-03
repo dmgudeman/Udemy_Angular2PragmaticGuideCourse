@@ -5,8 +5,7 @@
        novalidate>
       <fieldset>
          <legend>User</legend>
-         <div formGroupName="user"   
-            class="form-group">
+         <div formGroupName="user" class="form-group">
             <label>Full Name</label>
             <input 
                 [(ngModel)]="user.name"  
@@ -20,28 +19,29 @@
                   Name is required
             </div>
          </div>
-         <div formGroupName="user">
+         <div *ngIf = "user.email">
+         <div formGroupName="user" class="form-group">
             <label>Email</label>
-            <input type="text" 
+            <input
+                 [(ngModel)]="user.email" 
+                 #email
+                 type="text" 
                  formControlName="email" 
                  class="form-control">
             <div
-            *ngIf="!form.controls.user.controls.email.valid &&
-                     form.controls.user.controls.email.touched"
-               class="alert alert-danger">
-                  A valid Email address is required
-            </div>
-           <!--<div
             *ngIf="form.controls.user.controls.email.valid &&
                      form.controls.user.controls.email.touched"
                class="alert alert-danger">
                   Valid Email address is required
             </div>
--->
+            
          </div>
-         <div formGroupName="user">  
+       </div>
+         <div formGroupName="user" class="form-group">  
             <label>Phone</label>
-            <input type="text"
+            <input 
+            [(ngModel)]="user.phone" 
+                 type="text"
                  formControlName="phone" 
                  class="form-control" >
          </div>
