@@ -15,13 +15,7 @@ export const usersRouting = RouterModule.forChild([
             path: 'users-experimental',
             component: UsersExperimentalComponent,
       },
-      {
-            path: 'users-form/:id',
-            component: UsersFormComponent,
-            canActivate: [AuthGuard],
-            canDeactivate: [PreventUnsavedChangesGuard],
-
-      },
+      
       {
             path: 'users-form/new',
             component: UsersFormComponent,
@@ -29,6 +23,13 @@ export const usersRouting = RouterModule.forChild([
             canDeactivate: [PreventUnsavedChangesGuard],
 
       }
+      ,{
+            path: 'users-form/:id',
+            component: UsersFormComponent,
+            canActivate: [AuthGuard],
+            canDeactivate: [PreventUnsavedChangesGuard],
+
+      },
                   
             
       

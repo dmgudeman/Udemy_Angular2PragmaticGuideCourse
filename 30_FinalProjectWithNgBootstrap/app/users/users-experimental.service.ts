@@ -21,13 +21,13 @@ export class UsersExperimentalService {
             .map(res => res.json());
     }
 
-    getUser(id:number){
-        console.log("Im in the service, the id = " + id);
-        return this.http.get(this.usersUrl)
-                   .map(res => res.json())
-                   .filter(user=>user.id == id)
-    }
-
+    getUser(userId:number){
+		return this.http.get(this.getUserUrl(userId))
+			.map(res => res.json());
+	}
+ private getUserUrl(userId:number){
+		return this.usersUrl + "/" + userId;
+	}
     private extractData(res: Response) {
         let body = res.json();
 

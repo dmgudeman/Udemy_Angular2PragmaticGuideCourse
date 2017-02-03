@@ -19,5 +19,11 @@ export class UsersService {
       //this.users = http://jsonplaceholder.typicode.com/users
 
    }
+   getUser(id:number){
+        console.log("Im in the service, the id = " + id);
+        return this.http.get(this.usersUrl)
+                   .map(res => res.json())
+                   .filter(user=>user.id == id)
+    }
 
 }
