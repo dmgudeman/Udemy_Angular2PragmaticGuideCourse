@@ -50,19 +50,27 @@
          <legend>Address</legend>
          <div formGroupName="address" class="form-group">
             <label>Street</label>
-            <input type="text"
+            <input 
+                 [(ngModel)]="user.address.street"
+                 type="text"
                  formControlName="street" 
                  class="form-control" >
             <label>Suite</label>
-            <input type="text"
+            <input 
+                 [(ngModel)]="user.address.suite"
+                 type="text"
                  formControlName="suite" 
                  class="form-control" >
             <label>City</label>
-            <input type="text"
+            <input 
+                 [(ngModel)]="user.address.city"
+                 type="text"
                  formControlName="city" 
                  class="form-control" >
             <label>ZipCode</label>
-            <input type="text"
+            <input 
+                 [(ngModel)]="user.address.zipcode"
+                 type="text"
                  formControlName="zipcode" 
                  class="form-control" >
         </div> 
