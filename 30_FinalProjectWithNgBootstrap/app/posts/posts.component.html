@@ -1,0 +1,17 @@
+      <h4>Posts</h4>
+
+
+ 
+   <table class=" table table-bordered myTable">
+   
+   <tbody>
+      <tr *ngFor="let post of posts">
+      <td> {{post.body}}</td>
+     
+      <!--<td>  <a [routerLink]="['/users-form', user.id]">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a></td>
+      <td> <i (click)="deleteUser(user)" class="glyphicon glyphicon-remove clickable"></i></td>
+      </tr>-->
+   </tbody>
+</table>

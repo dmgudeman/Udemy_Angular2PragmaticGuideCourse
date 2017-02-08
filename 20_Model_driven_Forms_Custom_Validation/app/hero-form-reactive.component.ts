@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Hero } from './hero'
-
+import { UsernameValidators } from './usernameValidators';
 
 export class HeroFormReactiveComponent{
 heroForm: FormGroup;
-
+hero:Hero;
 constructor(private fb: FormBuilder) {}
 
 ngOnInit(): void  {

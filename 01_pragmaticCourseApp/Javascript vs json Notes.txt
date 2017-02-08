@@ -1,3 +1,17 @@
 SCRATCHPAD
 
-<div *ngIf = "user.email">
+<div *ngFor="let company of companies" class="co-box " [ngStyle]= "{'background-color': company.color}">
+      <div class=" co-box" >
+
+        <div class="co-heading">{{company.name}}
+          <span class="short-line">
+        <input type="button" class="little-rt-btn" value="edit"></span>
+        </div>
+        <div  >
+          <input type="button" class="co-button co-left" [ngStyle]= "{'background-color': company.color}" value="Export Invoice">
+          <input type="button" class="co-button co-right" [ngStyle]= "{'background-color': company.color}" value=" + Add">
+        </div>
+
+
+      </div>
+    </div>
